@@ -6,7 +6,7 @@ public class Main {
         int[] bubbleNumbers = {2,5,10,6,4,14,17,19,24};
 
         // by default, we assume there is no need to loop again
-        boolean shouldLoopAgain = false;
+        boolean shouldLoopAgain;
 
         // we used do while since I want it to check the first loop for any swap
         // this is because a swap means that the array has to be sorted again
@@ -23,7 +23,6 @@ public class Main {
                 }
             }
         } while(shouldLoopAgain);
-
 
         for (int i = 0; i < bubbleNumbers.length; ++i)
             System.out.println(bubbleNumbers[i]);
@@ -43,7 +42,7 @@ public class Main {
                 }
             }
 
-            // swap the current minimum with the i
+            // swap the current maximum with the i
             int temp = selectionNumbers[i];
             selectionNumbers[i] = selectionNumbers[currMax];
             selectionNumbers[currMax] = temp;
@@ -53,12 +52,40 @@ public class Main {
             System.out.println(selectionNumbers[i]);
     }
 
+    /// for question 2, this is the reversed version of selectionSort
+    static void selectionSortRemastered(){
+        int[] selectionNumbers = {7,6,3,1,9,13,4,16,19,20};
+
+        for (int i = selectionNumbers.length - 1; i >= 0; --i){
+
+            // scans for the max element, starting from the right then to the left
+            int currMin = i;
+            for (int j = i - 1; j >= 0; --j){
+                if (selectionNumbers[j] < selectionNumbers[currMin]){
+                    currMin = j;
+                }
+            }
+
+            // swap the current with max from right to left
+            int temp = selectionNumbers[i];
+            selectionNumbers[i] = selectionNumbers[currMin];
+            selectionNumbers[currMin] = temp;
+        }
+
+        for (int i = 0; i < selectionNumbers.length; ++i)
+            System.out.println(selectionNumbers[i]);
+    }
+
     public static void main(String[] args) {
+        System.out.println("-------------------");
         System.out.println("BubbleSort");
         bubbleSort();
         System.out.println("-------------------");
         System.out.println("SelectionSort");
         selectionSort();
+        System.out.println("-------------------");
+        System.out.println("SelectionSort Reversed");
+        selectionSortRemastered();
     }
 
 }
