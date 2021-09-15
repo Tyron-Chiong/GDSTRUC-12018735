@@ -23,6 +23,11 @@ public class Main {
         System.out.println("---------------------");
         System.out.println(linkedList.contains(10));
         System.out.println(linkedList.indexOf(4));
-
+        System.out.println("---------------------");
+        System.out.println(linkedList.popFront().getName());
+        System.out.println("---------------------");
+        System.out.println("Updated LinkedList");
+        System.out.println("---------------------");
+        linkedList.printAll();
     }
 }
