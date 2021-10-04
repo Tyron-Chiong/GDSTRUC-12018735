@@ -1,15 +1,18 @@
 package com.chiongtyron;
 
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class CardStack {
 
     private LinkedList<Card> deck;
+    private LinkedList<Card> discardPile;
 
     public CardStack() {
         var deck = new LinkedList<Card>();
+        var discardPile = new LinkedList<Card>();
 
-        deck.add(new Card(1, "Tyron Chiong", 5));
+        deck.add(new Card(1, "Tyron", 5));
         deck.add(new Card(2, "Basti", 11));
         deck.add(new Card(3, "Xyrus", 14));
         deck.add(new Card(4, "Diego", 41));
@@ -41,6 +44,30 @@ public class CardStack {
         deck.add(new Card(30, "John", 31));
 
         this.deck = deck;
+    }
+
+
+
+    public void push(Card card){
+        deck.push(card);
+    }
+
+    public boolean isEmpty(){
+        return deck.isEmpty();
+    }
+
+    public Card pop(){
+        return deck.pop();
+    }
+
+    public Card peek(){
+        return deck.peek();
+    }
+
+    public void printDeck(){
+        System.out.println("Remaining deck of cards:");
+        for (Card card : deck)
+            System.out.println("Id:" + card.getId() + " Name:[" + card.getName() + "] Level:" + card.getLevel());
     }
 
 }
