@@ -2,14 +2,18 @@ package com.chiongtyron;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.NoSuchElementException;
+import java.util.Random;
 
 public class CardStack {
 
     private LinkedList<Card> deck;
+    private LinkedList<Card> playerHand;
     private LinkedList<Card> discardPile;
 
     public CardStack() {
         var deck = new LinkedList<Card>();
+        var playerHand = new LinkedList<Card>();
         var discardPile = new LinkedList<Card>();
 
         deck.add(new Card(1, "Tyron", 5));
@@ -44,29 +48,41 @@ public class CardStack {
         deck.add(new Card(30, "John", 31));
 
         this.deck = deck;
+        this.playerHand = playerHand;
+        this.discardPile = discardPile;
     }
 
-
-
-    public void push(Card card){
-        deck.push(card);
+    public void printInfo() {
+        System.out.println("# player deck cards: " + deck.size());
+        System.out.println("# discard cards: " + discardPile.size());
     }
 
-    public boolean isEmpty(){
-        return deck.isEmpty();
+    public boolean isEmpty() { return deck.isEmpty(); }
+    public void drawFromActivePile() {
+        try{
+            playerHand.add(deck.pop());
+        } catch(NoSuchElementException ex){
+            System.out.println("Player Deck Empty");
+        }
     }
-
-    public Card pop(){
-        return deck.pop();
+    public void discardCard() {
+        try{
+            discardPile.add(playerHand.pop());
+        } catch (NoSuchElementException ex){
+            System.out.println("Player Hand empty");
+        }
     }
-
-    public Card peek(){
-        return deck.peek();
+    public void drawFromDiscardPile() {
+        try {
+            playerHand.add(discardPile.pop());
+        } catch (NoSuchElementException ex){
+            System.out.println("Discard Pile empty");
+        }
     }
 
     public void printDeck(){
         System.out.println("Remaining deck of cards:");
-        for (Card card : deck)
+        for (Card card : playerHand)
             System.out.println("Id:" + card.getId() + " Name:[" + card.getName() + "] Level:" + card.getLevel());
     }
 
