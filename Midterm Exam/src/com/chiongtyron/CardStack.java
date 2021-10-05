@@ -67,18 +67,17 @@ public class CardStack {
     public void drawFromActivePile() {
         try{
             playerHand.add(deck.pop());
-        } catch(NoSuchElementException ex){
+        } catch(NoSuchElementException ex) {
             System.out.println("Player Deck Empty");
         }
     }
-
 
     /// Pops from the player hand and adds to discard pile
     /// also throws an exception when deck is empty
     public void discardCard() {
         try{
             discardPile.add(playerHand.pop());
-        } catch (NoSuchElementException ex){
+        } catch (NoSuchElementException ex) {
             System.out.println("Player Hand empty");
         }
     }
@@ -88,13 +87,13 @@ public class CardStack {
     public void drawFromDiscardPile() {
         try {
             playerHand.add(discardPile.pop());
-        } catch (NoSuchElementException ex){
+        } catch (NoSuchElementException ex) {
             System.out.println("Discard Pile empty");
         }
     }
 
     /// prints the player's hand and card info
-    public void printPlayerHand(){
+    public void printPlayerHand() {
         System.out.println("Remaining deck of cards:");
         for (Card card : playerHand)
             System.out.println("Id:" + card.getId() + " Name:[" + card.getName() + "] Level:" + card.getLevel());
