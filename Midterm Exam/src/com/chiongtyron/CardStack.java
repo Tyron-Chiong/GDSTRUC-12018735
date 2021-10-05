@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class CardStack {
 
+    // creates a list of cards for the player's deck and discard pile.
     private LinkedList<Card> deck;
     private LinkedList<Card> playerHand;
     private LinkedList<Card> discardPile;
@@ -52,12 +53,17 @@ public class CardStack {
         this.discardPile = discardPile;
     }
 
+    /// prints the amount of cards for the player's deck and discarded pile
     public void printInfo() {
         System.out.println("# player deck cards: " + deck.size());
         System.out.println("# discard cards: " + discardPile.size());
     }
 
+    /// returns if the deck is empty
     public boolean isEmpty() { return deck.isEmpty(); }
+
+    /// Pops from the deck and adds to the player's hand
+    /// note: it will try and catch the exception if the deck is empty
     public void drawFromActivePile() {
         try{
             playerHand.add(deck.pop());
@@ -65,6 +71,10 @@ public class CardStack {
             System.out.println("Player Deck Empty");
         }
     }
+
+
+    /// Pops from the player hand and adds to discard pile
+    /// also throws an exception when deck is empty
     public void discardCard() {
         try{
             discardPile.add(playerHand.pop());
@@ -72,6 +82,9 @@ public class CardStack {
             System.out.println("Player Hand empty");
         }
     }
+
+    /// Pops discard pile and adds to player hand
+    /// also throws an exception when deck is empty
     public void drawFromDiscardPile() {
         try {
             playerHand.add(discardPile.pop());
@@ -80,10 +93,15 @@ public class CardStack {
         }
     }
 
-    public void printDeck(){
+    /// prints the player's hand and card info
+    public void printPlayerHand(){
         System.out.println("Remaining deck of cards:");
         for (Card card : playerHand)
             System.out.println("Id:" + card.getId() + " Name:[" + card.getName() + "] Level:" + card.getLevel());
     }
 
+    // getters
+    public int getDeckSize() { return deck.size(); }
+    public int getPlayerHandSize() { return playerHand.size(); }
+    public int getDiscardPileSize() { return discardPile.size(); }
 }
