@@ -1,10 +1,13 @@
 package com.chiongtyron;
 
+import java.util.Objects;
+
 public class Player {
 
     private int id;
     private String name;
     private int level;
+
 
     // constructor that creates and returns player info
     public Player(int id, String name, int level) {
