@@ -41,4 +41,18 @@ public class PlayerLobby {
         this.playerList = playerList;
 
     }
+
+    public void remove() {
+
+        playerList.remove("Player 1");
+    }
+
+    public void printLobby() {
+        System.out.println(playerList.size());
+
+        for (var key : playerList.keySet()){
+            System.out.println(key + " " + playerList.get(key).getName());
+        }
+    }
+
 }
