@@ -16,8 +16,15 @@ public class Main {
         tree.insert(36);
         tree.insert(4);
 
-        //tree.traverseInOrder();
-        System.out.println(tree.get(28));
+        tree.traverseInOrder();
+        System.out.println("=======================");
+        System.out.println("You got: " + tree.get(28));
+        System.out.println("=======================");
+        System.out.println(tree.getMin(tree.getRoot()) + " is the lowest value in the tree.");
+        System.out.println(tree.getMax(tree.getRoot()) + " is the largest value in the tree.");
+        System.out.println("=======================");
+        System.out.println("Traverse In order Descending version: ");
+        tree.traverseInOrderDescending();
 
     }
 }

@@ -1,5 +1,8 @@
 package com.chiongtyron;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 public class Node {
     private int data;
     private Node rightChild;
@@ -35,6 +38,17 @@ public class Node {
 
         if (rightChild != null) {
             rightChild.traverseInOrder();
+        }
+    }
+
+    public void traverseInOrderDescending() {
+        if (rightChild != null) {
+            rightChild.traverseInOrderDescending();
+        }
+        System.out.println("Data: " + data);
+
+        if (leftChild != null) {
+            leftChild.traverseInOrderDescending();
         }
     }
 
