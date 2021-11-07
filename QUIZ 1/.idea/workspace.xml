@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fe03329-0f3f-47bb-8c08-cb7ce6acd98a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../QUIZ 4/src/com/chiongtyron/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../QUIZ 4/src/com/chiongtyron/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../QUIZ 4/src/com/chiongtyron/PlayerLobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/../QUIZ 4/src/com/chiongtyron/PlayerLobby.java" afterDir="false" />
-    </list>
+    <list default="true" id="4fe03329-0f3f-47bb-8c08-cb7ce6acd98a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
